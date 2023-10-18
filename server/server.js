@@ -4,9 +4,11 @@ const mongoose = require("mongoose");
 
 const app = express();
 require("dotenv").config();
+const useRouters = require("./routes/userRouter");
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/author", useRouters)
 
 app.get("/api/home", (req, res) => {
     res.json({message : "Welcome to WhatsApp"})
